@@ -5,8 +5,32 @@ const UserPost = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    fetch('https://dogsapi.origamid.dev/json/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        return json;
+      });
+  }
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Username"
@@ -27,7 +51,7 @@ const UserPost = () => {
       />
 
       <button>Enviar</button>
-    </div>
+    </form>
   );
 };
 
