@@ -10,12 +10,13 @@ const validation = {
 
 const useForm = (type) => {
   const [value, setValue] = React.useState('');
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState(null);
 
   function validate(value) {
     if (type === false) return true;
     if (value === 0) {
       setError('Preencha um valor.');
+      return false;
     }
   }
 
