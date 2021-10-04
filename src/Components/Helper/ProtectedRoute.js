@@ -7,7 +7,7 @@ const ProtectedRoute = (props) => {
 
   if (login) return <Route {...props} />;
   else if (login === false) return <Navigate to="/login" />;
-  return <div></div>;
+  else return null;
 };
 
 export default ProtectedRoute;
