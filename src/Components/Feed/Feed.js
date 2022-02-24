@@ -41,7 +41,7 @@ const Feed = ({ user }) => {
       {pages.map((page) => (
         <FeedPhotos
           user={user}
-          key={pages}
+          key={page}
           page={page}
           setModalPhoto={setModalPhoto}
           setInfinity={setInfinity}
