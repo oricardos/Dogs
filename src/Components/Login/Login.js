@@ -6,6 +6,7 @@ import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../UserContext';
 import style from './Login.module.css';
+import Head from '../Helper/Head';
 
 const Login = () => {
   const { login } = React.useContext(UserContext);
@@ -15,6 +16,7 @@ const Login = () => {
   return (
     <section className={style.login}>
       <div className={style.forms}>
+        <Head title="Login" />
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="criar" element={<LoginCreate />} />

@@ -6,18 +6,20 @@ import useFetch from "../../Hooks/useFetch";
 import { PASSWORD_RESET } from "../../api";
 import Error from "../Helper/Error";
 import { useNavigate } from "react-router-dom";
+import Head from "../Helper/Head";
 
 const LoginPasswordReset = () => {
   const [login, setLogin] = React.useState("");
   const [key, setKey] = React.useState("");
   const password = useForm("password");
+  const { error, loading, request } = useFetch();
   const navigate = useNavigate();
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const login = params.get("login");
     const key = params.get("key");
-    const { error, loading, request } = useFetch();
+    
 
     if (login) setLogin(login);
     if (key) setKey(key);
@@ -41,6 +43,7 @@ const LoginPasswordReset = () => {
 
   return (
     <div>
+      <Head title="Resetar senha" />
       <h1 className="title">Recuperar Senha</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Nova Senha" type="password" name="password" {...password} />
